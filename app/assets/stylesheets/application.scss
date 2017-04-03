@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
-  body{ 
 
+
+
+  body{ 
   background: url("bbq.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -23,16 +25,27 @@
   font-family: 'Architects Daughter', cursive;
 }
 
+.h_links {
+  padding-left: 40px;
+}
+
+
  .h_links a{
   color:white;
  }
+
  h1,h2,h3,h4,h5,h6 {
   color:white;
  }
 
+
+ html {
+  position: relative;
+  min-height: 100%;
+}
+
 .row {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
  
