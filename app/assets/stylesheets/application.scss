@@ -14,7 +14,10 @@
  *= require_self
  */
 
-
+.about {
+  text-align: center;
+  padding-top: 30px;
+}
 
   body{ 
   background: url("bbq.jpg") no-repeat center center fixed; 
@@ -25,8 +28,12 @@
   font-family: 'Architects Daughter', cursive;
 }
 
+.container{
+  color:white;
+}
 .h_links {
   padding-left: 40px;
+  padding-top: 20px;
 }
 
 
@@ -42,6 +49,10 @@
  html {
   position: relative;
   min-height: 100%;
+}
+
+p {
+  color:white;
 }
 
 .row {
