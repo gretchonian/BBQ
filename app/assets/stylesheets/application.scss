@@ -14,8 +14,22 @@
  *= require_self
  */
 
+a{
+  color:white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color: #ffad33;
+}
+
+
 .about {
-  text-align: center;
+ text-align: center;
   padding-top: 30px;
 }
 
@@ -31,11 +45,14 @@
 .container{
   color:white;
 }
+
+.contact {
+}
+
 .h_links {
   padding-left: 40px;
   padding-top: 20px;
 }
-
 
  .h_links a{
   color:white;
@@ -49,6 +66,10 @@
  html {
   position: relative;
   min-height: 100%;
+}
+
+.menu {
+  
 }
 
 p {
