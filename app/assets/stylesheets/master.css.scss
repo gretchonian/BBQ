@@ -42,13 +42,19 @@ html {
   padding: 10px 40px;
 }
 
+.img {
+  height: 100%;
+  width: 300px;
+  object-fit: contain;
+  }
+
 .index {
   margin: 30px;
 }
 
 .index-bottom {
   margin-bottom: 30px;
-}
+ }
 
 .navbar {
   background-color: black;
