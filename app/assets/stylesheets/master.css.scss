@@ -23,6 +23,15 @@ html {
   padding-top: 30px;
 }
 
+.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
+  height: 300px;
+  width: 100%;
+}
+
+.carousel img {
+  object-fit: contain;
+}
+
 .contact {
 }
 
@@ -34,7 +43,11 @@ html {
 }
 
 .index {
-  margin-top: 30px;
+  margin: 30px;
+}
+
+.index-bottom {
+  margin-bottom: 30px;
 }
 
 .navbar {
