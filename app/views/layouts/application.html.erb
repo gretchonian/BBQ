@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bbq</title>
+    <title>Off the Bone BBQ</title>
+    <meta name = "description" content = "Off the Bone Catering offers delicious food for any occassion "/>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,30 +10,27 @@
   </head>
 
   <body>
-    <header class="row">
-      <div class="h_links">
+    <div id="flex-content-container">
+      <nav class="navbar">
+        <div class="row h_links">
+          
           <%= link_to 'HOME', root_path %>
-            &nbsp;&nbsp;
+                 
           <%= link_to 'ABOUT', about_path %>
-            &nbsp;&nbsp;
+          
           <%= link_to 'MENU', menu_path %>
-            &nbsp;&nbsp;
+           
           <%= link_to 'CONTACT', contact_path %>
-      </div>
-    </header>
-    <%= yield %>
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <a href="#">d</a>
-          </div>
-          <div class="col">
-            <a href="#">made by gtothejoyce</a>
-          </div>
+          
         </div>
+      </nav>
+      <%= yield %>
+    </div>
+        
+    <div id="footer">
+      <div class="container text-right">
+        <a href="http://www.zigzagwebdesigns.com">ZigZagDesign</a>
       </div>
     </div>
-
   </body>
 </html>
