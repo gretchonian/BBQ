@@ -2,12 +2,14 @@
 <br/>
 
 <div class="frosty col-10 offset-1">
-  <h1>hello</h1>
+  <h1>Enter Your Contact Information</h1>
   <%= simple_form_for @rfq do |f| %>
+    <br/>
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :phone_number %>
-    <%= f.button :submit %>
+    <br/>
+    <%= f.submit 'Enter', class: 'btn btn-primary' %>
   <% end %>
 
 </div>
