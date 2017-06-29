@@ -9,7 +9,7 @@ body {
   font-family: 'Architects Daughter', cursive;
 }
 
-h1,h2,h3,h4,h5,h6,p,li {
+h1,h2,h3,h4,h5,h6,p,li,a {
   color:white;
 }
 
@@ -21,6 +21,10 @@ html {
 .about {
   text-align: center;
   padding-top: 30px;
+}
+
+.btn {
+  font-family: 'Architects Daughter', cursive;
 }
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
@@ -69,6 +73,10 @@ html {
 
 ul {
   list-style-type: none;
+}
+
+a:hover {
+  color: white;
 }
 
 

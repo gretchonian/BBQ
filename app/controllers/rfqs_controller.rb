@@ -6,7 +6,11 @@ class RfqsController < ApplicationController
 
   def create
     @rfq = Rfq.create(rfq_params)
-    redirect_to menu_path
+    if @rfq.valid? 
+      redirect_to menu_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
 
