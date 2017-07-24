@@ -1,15 +1,19 @@
 class BbqController < ApplicationController
-end
 
-def index
-end
+  def index
 
-def about
-end
+  end
 
-def menu
-end
+  def about
 
-def contact
-end
+  end
 
+  def menu
+
+  end
+
+  def contact
+
+  end
+
+end
