@@ -1,7 +1,7 @@
 class RfqsController < ApplicationController
 
   def new
-    @rfq = Rfq.new
+    @rfq = Rfq.new 
   end
 
   def create
@@ -11,6 +11,7 @@ class RfqsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+   
   end
 
 
