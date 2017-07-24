@@ -18,8 +18,8 @@ RSpec.describe RfqsController, type: :controller do
       }
       expect(response).to redirect_to menu_path
 
-      # rfq = Rfq.last
-      # get :show, params: { id: rfq.id }
+      rfq = Rfq.last
+      expect(rfq.name).to eq('Jon Doe')
       
     end      
   end
