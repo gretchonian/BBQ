@@ -9,6 +9,7 @@ body {
   font-family: 'Architects Daughter', cursive;
 }
 
+
 h1,h2,h3,h4,h5,h6,p,li,a {
   color:white;
 }
@@ -40,7 +41,7 @@ html {
 }
 
 .h_links a{
-  color:white;
+  color: white;
   font-size: 20px;
   letter-spacing: 2px;
   padding: 10px 40px;
@@ -60,6 +61,7 @@ html {
   margin-bottom: 30px;
  }
 
+
 .frosty {
   background: rgba(0, 0, 0, 0.6);
   color: white;
@@ -70,12 +72,17 @@ html {
 li {
   list-style-type: none;
 }
+
 .navbar {
   background-color: black;
 }
 
 a:hover {
   color: white;
+
+ul {
+  list-style-type: none;
+
 }
 
 
