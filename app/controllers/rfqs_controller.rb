@@ -8,6 +8,7 @@ class RfqsController < ApplicationController
     @rfq = Rfq.create(rfq_params)
     if @rfq.valid? 
       redirect_to menu_path
+      NotificationMailer.rfq_submitted(@rfq).deliver
     else
       render :new, status: :unprocessable_entity
     end
