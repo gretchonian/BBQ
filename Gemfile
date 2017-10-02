@@ -67,3 +67,5 @@ gem 'simple_form'
 
 #ENV secure storage
 gem "figaro"
+
+gem 'jquery-ui-rails'
