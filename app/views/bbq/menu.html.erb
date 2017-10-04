@@ -1,24 +1,12 @@
 
 <script>
   // console.log('hello');
-  var meats = ['Pulled Pork', 'Pork Loin'];
-  var meatList = "";
-  $('#myDiv').append("<ul id='meatList'></ul>");
-  for (var i = 0; i < meats.length; i++) {
-    // "<input type=checkbox>" + meats[i] + "</input>"
-    $('#meatList').append("<li>" + "<input type='checkbox'>" + meats[i] + "</li>");
-  }
-  console.log(meatList);
-
-//   $(function(){
-//     someList = [ {FirstName: "Joe", LastName: "Smith"} ,
-//                  {FirstName: "Will", LastName: "Brown"} ]
-
-//     $("#target").append("<ul id='list'></ul>");
-//     $.each(someList, function(n, elem) {
-//        $("#list").append("<li>" + elem.FirstName + " : " + elem.LastName + "</li>");
-//     });
-// });
+  $(function(){
+    $('.meat').change(function() {
+      var chosenMeat = $('.meat').data('meat');
+      console.log(chosenMeat);
+    });
+  });
 
 </script>
 <br/>
@@ -28,32 +16,38 @@
 
   <h1>Menu</h1>
   <br/>
+  <!-- <form action="/action_page.php" "email_list"> -->
   <div class="row">
-    <div class="meats col-12 col-sm-6">
+    <div id=meatlist class="meats col-12 col-sm-6">
       <h3>Smoked Meat Selection</h3>
-      <br />
-      <li><input type='checkbox'>Pulled Pork</li>
-      <li>Pork Loin</li>
-      <li>Tri - Tip</li>
-      <li>Brisket</li>
-      <li>Pulled Beef</li>
-      <li>Ribs (St. Louis or Baby Back)</li>
-      <li>Chicken Thighs</li>
-      <li>German Sausages and Hot Links</li>
+      <ul>
+        <br />
+        <li class="meat" data-meat="pulled pork"><input type='checkbox' id='checkBox'> <label>Pulled Pork</label></li>
+        <li class="meat" data-meat="pork loin"><input type='checkbox' id='checkBox'> Pork Loin</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Tri - Tip</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Brisket</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Pulled Beef</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Ribs (St. Louis or Baby Back)</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Chicken Thighs</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> German Sausages and Hot Links</li>
+     </ul>
     </div>
 
     <div class="sides col-12 col-sm-6">
       <h3>Side Dishes</h3>
-      <br />
-      <li>Coleslaw</li>
-      <li>BBQ Beans</li>
-      <li>Potato Salad</li>
-      <li>Macaroni Salad</li>
-      <li>Green Salad or Caesar Salad</li>
-      <li>Smoked Bacon Macaroni and Cheese</li>
-      <li>Fruit Platter</li>
+      <ul>
+        <br />
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Coleslaw</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> BBQ Beans</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Potato Salad</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Macaroni Salad</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Green Salad or Caesar Salad</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Smoked Bacon Macaroni and Cheese</li>
+        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Fruit Platter</li>
+      </ul>
     </div>
   </div>
+<!-- </form> -->
   <br/>
   <%= link_to "Request a Quote", new_rfq_path %>
   
