@@ -19,7 +19,7 @@ class RfqsController < ApplicationController
   private
 
   def rfq_params
-    params.require(:rfq).permit(:name, :email, :phone_number)
+    params.require(:rfq).permit(:name, :email, :phone_number, :meats, :sides)
   end
 
 

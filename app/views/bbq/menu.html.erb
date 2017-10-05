@@ -1,56 +1,71 @@
 
 <script>
-  // console.log('hello');
-  $(function(){
-    $('.meat').change(function() {
-      var chosenMeat = $('.meat').data('meat');
-      console.log(chosenMeat);
+  $(function() {
+    $('.meat').change(function(e) {
+      var meatBoxesToCheck = $('li input[type="checkbox"]');
+      
+      var meatOrdered = meatBoxesToCheck.each(function() {
+        var meatOrderedHere =[];
+          if (this.checked == true) {
+            var meatId = $(e.target).data("id");
+            meatOrderedHere.push(meatId);
+            // console.log("meatId:" + meatId);
+          }
+        console.log("meatOrderedHere:" + meatOrderedHere);
+      });
+      console.log("meatOrdered" + meatOrdered);
     });
   });
-
 </script>
 <br/>
 
 <div class="frosty text-center col-10 offset-1">
-<div id="myDiv"></div>
+
 
   <h1>Menu</h1>
   <br/>
-  <!-- <form action="/action_page.php" "email_list"> -->
-  <div class="row">
-    <div id=meatlist class="meats col-12 col-sm-6">
-      <h3>Smoked Meat Selection</h3>
-      <ul>
-        <br />
-        <li class="meat" data-meat="pulled pork"><input type='checkbox' id='checkBox'> <label>Pulled Pork</label></li>
-        <li class="meat" data-meat="pork loin"><input type='checkbox' id='checkBox'> Pork Loin</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Tri - Tip</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Brisket</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Pulled Beef</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Ribs (St. Louis or Baby Back)</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Chicken Thighs</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> German Sausages and Hot Links</li>
-     </ul>
-    </div>
+  <div = "demo"></div>
+  <!-- <form name='rfq_summary'> -->
+    <div class="row">
+      <div id=meatlist class="meats col-12 col-sm-6">
+        <h3>Smoked Meat Selection</h3>
+        <ul class="meat">
+          <br />
+          <!-- <form>  -->
+            <li><input type="checkbox" data-id="pulled pork"  name="meatbox"><label> Pulled Pork</label></li>
+            <li><input type="checkbox" data-id="pork loin" name="meatbox"><label for="pork loin"> pork loin</label></li>
+            <li><input type="checkbox" data-id="tri-tip" name="meatbox"><label for="tri-tip"> tri-tip</label></li>
+          <!-- </form> -->
 
-    <div class="sides col-12 col-sm-6">
-      <h3>Side Dishes</h3>
-      <ul>
-        <br />
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Coleslaw</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> BBQ Beans</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Potato Salad</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Macaroni Salad</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Green Salad or Caesar Salad</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Smoked Bacon Macaroni and Cheese</li>
-        <li class="meat" data-meat="pulled pork"><input type='checkbox'> Fruit Platter</li>
-      </ul>
+
+          <!-- <li class="meat" data-meat="Pulled Pork"><input type='checkbox' id='meatbox'> Pulled Pork</li>
+          <li class="meat" data-meat="Pork Loin"><input type='checkbox' id='meatbox'> Pork Loin</li>
+          <li class="meat" data-meat="Tri - Tip"><input type='checkbox' id='meatbox'> Tri - Tip</li>
+          <li class="meat" data-meat="Brisket"><input type='checkbox' id='meatbox'> Brisket</li>
+          <li class="meat" data-meat="Pulled Beef"><input type='checkbox' id='meatbox'> Pulled Beef</li>
+          <li class="meat" data-meat="Ribs"><input type='checkbox' id='meatbox'> Ribs (St. Louis or Baby Back)</li>
+          <li class="meat" data-meat="Chicken Thighs"><input type='checkbox' id='meatbox'> Chicken Thighs</li>
+          <li class="meat" data-meat="German Sausages and Hot Links"><input type='checkbox' id='meatbox'> German Sausages and Hot Links</li> -->
+       </ul>
+      </div>
+
+      <div class="sides col-12 col-sm-6">
+        <h3>Side Dishes</h3>
+        <ul>
+          <br />
+         <!--  <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Coleslaw</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> BBQ Beans</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Potato Salad</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Macaroni Salad</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Green Salad or Caesar Salad</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Smoked Bacon Macaroni and Cheese</li>
+          <li class="meat" data-meat="pulled pork"><input type='checkbox' id='sidesbox'> Fruit Platter</li> -->
+        </ul>
+      </div>
     </div>
-  </div>
-<!-- </form> -->
-  <br/>
-  <%= link_to "Request a Quote", new_rfq_path %>
-  
+    <br/>
+    <%= link_to "Request a Quote", new_rfq_path %>
+  <!-- </form> -->
 </div>
 <!--   1 Meat, 2 sides $13-$15
 2 Meats, 2 sides $15-$18
