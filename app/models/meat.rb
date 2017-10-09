@@ -1,3 +1,3 @@
-class Meat < ApplicationRecord
-  belongs_to :rfqs
+class Meat < Food
+  
 end

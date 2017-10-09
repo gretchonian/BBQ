@@ -1,19 +1,24 @@
 
 <script>
-  $(function() {
-    $('.meat').change(function(e) {
-      var meatBoxesToCheck = $('li input[type="checkbox"]');
+  // $(function() {
+  //   $('.meat').change(function(e) {
+  //     var meatBoxesToCheck = $('li input[type="checkbox"]');
       
-      var meatOrdered = meatBoxesToCheck.each(function() {
-        var meatOrderedHere =[];
-          if (this.checked == true) {
-            var meatId = $(e.target).data("id");
-            meatOrderedHere.push(meatId);
-            // console.log("meatId:" + meatId);
-          }
-        console.log("meatOrderedHere:" + meatOrderedHere);
-      });
-      console.log("meatOrdered" + meatOrdered);
+  //     var meatOrdered = meatBoxesToCheck.each(function() {
+  //       var meatOrderedHere =[];
+  //         if (this.checked == true) {
+  //           var meatId = $(e.target).data("id");
+  //           meatOrderedHere.push(meatId);
+  //           // console.log("meatId:" + meatId);
+  //         }
+  //       console.log("meatOrderedHere:" + meatOrderedHere);
+  //     });
+  //     console.log("meatOrdered" + meatOrdered);
+  //   });
+  // });
+  $(function() {
+    $.get("/foods").success( function( data ) {
+      console.log(data);
     });
   });
 </script>
@@ -33,8 +38,8 @@
           <br />
           <!-- <form>  -->
             <li><input type="checkbox" data-id="pulled pork"  name="meatbox"><label> Pulled Pork</label></li>
-            <li><input type="checkbox" data-id="pork loin" name="meatbox"><label for="pork loin"> pork loin</label></li>
-            <li><input type="checkbox" data-id="tri-tip" name="meatbox"><label for="tri-tip"> tri-tip</label></li>
+            <li><input type="checkbox" data-id="pork loin" name="meatbox"><label> pork loin</label></li>
+            <li><input type="checkbox" data-id="tri-tip" name="meatbox"><label> tri-tip</label></li>
           <!-- </form> -->
 
 
