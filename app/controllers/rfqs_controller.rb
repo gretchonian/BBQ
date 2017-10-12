@@ -25,8 +25,7 @@ class RfqsController < ApplicationController
 
   def show
     @rfq = Rfq.where(id: params[:id]).last
-    @meats = Food.where(rfq_id: @rfq.id).all
-    # render json: @meats
+    @foods = Food.where(rfq_id: @rfq)
   end
 
 

@@ -40,20 +40,55 @@
   });
 </script>
 
-<div class="row">
-  <div class="col-12 col-sm-6">
-    <h3>Smoked Meat Selection</h3>
-    <ul class="meatlist">
-      <br />
-      <%= simple_form_for @rfq do |f| %>
-        <%=f.collection_check_boxes( :meats, @meats.all, :id, :name) do |b| %>
-          <li>
-            <%=b.check_box(class: "meat") %>
-            <%=b.label(class: "meat")%>
-        <%end%>
-          </li>
-        <%= f.submit 'Enter', class: 'btn btn-primary', method: :patch %>
-      <% end %>
-    </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+    <br/>
+    <br/>
+      <div class="text-center">
+        <h3>Smoked Meat Selection</h3>
+      </div>
+      <div class="col-10 offset-1">
+        <ul class="meatlist">
+        <br />
+          <%= simple_form_for @rfq do |f| %>
+            <%=f.collection_check_boxes( :meats, @foods.all, :id, :name) do |b| %>
+              <li>
+                <%=b.check_box(class: "meat") %>
+                <%=b.label(class: "meat")%>
+            <%end%>
+              </li>
+              <br/>
+            <%= f.submit 'Enter', class: 'btn btn-primary', method: :patch %>
+          <% end %>
+          <div class="clr">
+        </ul>
+        
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+    <br/>
+    <br/>
+      <div class="text-center">
+        <h3>Side Dishes</h3>
+      </div>
+      <div class="col-10 offset-1">
+        <ul class="meatlist">
+        <br />
+          <%= simple_form_for @rfq do |f| %>
+            <%=f.collection_check_boxes( :sides, @foods.all, :id, :name) do |b| %>
+              <li>
+                <%=b.check_box(class: "meat") %>
+                <%=b.label(class: "meat")%>
+            <%end%>
+              </li>
+              <br/>
+            <%= f.submit 'Enter', class: 'btn btn-primary', method: :patch %>
+          <% end %>
+          <div class="clr">
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
