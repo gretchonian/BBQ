@@ -6,20 +6,34 @@ class RfqsController < ApplicationController
 
   def create
     @rfq = Rfq.create(rfq_params)
-    if @rfq.valid? 
-      redirect_to menu_path
-      NotificationMailer.rfq_submitted(@rfq).deliver
+    if @rfq.valid?
+      redirect_to rfq_path(@rfq)
+      
     else
       render :new, status: :unprocessable_entity
     end
    
   end
 
+  def update
+    @rfq = Rfq.find(params[:id])
+    @rfq.update_attributes(rfq_params)
+    # render json: @rfq
+    NotificationMailer.rfq_submitted(@rfq).deliver
+    redirect_to rfq_path(@rfq)
+  end
+
+  def show
+    @rfq = Rfq.where(id: params[:id]).last
+    @meats = Food.where(rfq_id: @rfq.id).all
+    # render json: @meats
+  end
+
 
   private
 
   def rfq_params
-    params.require(:rfq).permit(:name, :email, :phone_number)
+    params.require(:rfq).permit(:name, :email, :phone_number, meats: [])
   end
 
 

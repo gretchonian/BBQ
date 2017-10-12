@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   get 'about', to: 'bbq#about'
   get 'menu', to: 'bbq#menu'
   get 'contact', to: 'bbq#contact'
-  resources :rfqs, only: [:new, :create]
-  # resources :rfqs, only: [:show] do
-  resources :foods 
-  # resources :meats
- 
+  resources :rfqs, only: [:new, :create, :update, :show]
+  resources :foods, only: [:update]
 end

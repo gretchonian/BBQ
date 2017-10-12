@@ -37,7 +37,21 @@ html {
   object-fit: contain;
 }
 
+.form-col {
+  -webkit-column-count: 0; /* Chrome, Safari, Opera */
+  -moz-column-count: 0; /* Firefox */
+  column-count: 0; 
+}
+
+.meat {
+  color: white;
+}
+
 .contact {
+}
+
+.span {
+  width: none;
 }
 
 .h_links a{
