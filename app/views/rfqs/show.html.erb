@@ -1,43 +1,52 @@
 
 <script>
-  // $(function() {
-  //   $('.meat').change(function(e) {
-  //     // var meatBox = $( this );
-  //     // console.log($input);
-  //     var meatBoxesToCheck = $('li input[type="checkbox"]');
-  //     var meatId = $(e.target).data("id");
-  //     var meatBoxChecked = $(e.target);
-  //     var checkedStatus = meatBoxChecked.selected ? "checked" : "";
-  //     meatBoxChecked.change(checkedStatus);
-  //     console.log(meatBoxChecked);
+  $(function() {
+    $('.meat').change(function(e) {
+      // var meatBox = $( this );
+      // console.log($input);
+      var meatBoxesToCheck = $('li input[type="checkbox"]');
+      var meatId = $(e.target).data("value");
+      var meatName = $(e.target).data("text");
+      var meatBoxChecked = $(e.target);
+      var checkedStatus = meatBoxChecked.selected ? "checked" : "";
+      meatBoxChecked.change(checkedStatus);
+      console.log(meatBoxChecked);
+      console.log(meatName);
             
   //     meatBoxesToCheck.each(function() {
   //       var meatBox = this;
         
-  //         if (this.checked == true) {
+          if (this.checked == true) {
   //           var meatName = $(e.target).data("meat");
-  //           var meatId = $(e.target).data("id");
+            var meatId = $(e.target).data("value");
   //           var rfqId = $(e.target).data("rfq");
-  //           var selectedMeat = Boolean($(e.target).is(':checked'));  
+            var selectedMeat = Boolean($(e.target).is(':checked'));  
   //           // console.log("meatName:" + meatName);
   //           // console.log("meatId:" + meatId);
   //           // console.log("rfqId:" + rfqId);
   //           // console.log("selectedMeat:" + selectedMeat);
   //           // console.log("meatbox:"+ meatBox);
-  //           $.ajax({
-  //             type: 'PUT',
-  //             url: "/foods/" + meatId,
-  //             data: { food: {selected: selectedMeat} },
-  //           });
-  //         }
+            $.ajax({
+              type: 'PUT',
+              url: "/foods/" + meatId,
+              data: { food: {selected: selectedMeat} },
+            });
+          } else {
+            var deSelectedMeat = Boolean($(e.target).is(''));
+             $.ajax({
+              type: 'PUT',
+              url: "/foods/" + meatId,
+              data: { food: {selected: deSelectedMeat} },
+            });
+          }
   //     })
   //   // $( ".meat" ).html(
   //   //           ".attr( \"checked\" ): <b>" + meatBoxChecked.attr( "checked" ) + "</b><br>" +
   //   //           ".prop( \"checked\" ): <b>" + meatBoxChecked.prop( "checked" ) + "</b><br>" +
   //   //           ".is( \":checked\" ): <b>" + meatBoxChecked.is( ":checked" ) + "</b>" );
   //   //           }).change();
-  //   });
-  // });
+    });
+  });
 </script>
 
 <div class="container">
@@ -52,14 +61,10 @@
         <ul class="meatlist">
         <br />
           <%= simple_form_for @rfq do |f| %>
-            <%=f.collection_check_boxes( :meats, @meats.all, :id, :name ) do |b| %>
-              <li>
-                <!-- :post, :author_ids, Author.all, :id, :name_with_initial -->
-                <!-- b.label(:"data-value" => b.value) { b.check_box + b.text } -->
-                <%=b.check_box(class: "meat") %><%=b.label("data-value": b.value, class: "meat_name")%>
-            <%end%>
-              </li>
-              <br/>
+            <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
+              <li><%=b.check_box("data-value": b.value, "data-text": b.text, class: "meat") %><%=b.label(class: "meat_name")%>
+            <%end%></li>
+            <br/>
         </ul>
         
       </div>
@@ -71,12 +76,12 @@
         <h3>Side Dishes</h3>
       </div>
       <div class="col-10 offset-1">
-        <ul class="meatlist">
+        <ul class="sidelist">
         <br />
             <%=f.collection_check_boxes( :sides, @sides.all, :id, :name) do |b| %>
               <li>
-                <%=b.check_box(class: "meat") %>
-                <%=b.label(class: "meat")%>
+                <%=b.check_box(class: "side") %>
+                <%=b.label("data-value": b.value, class: "side_name")%>
             <%end%>
               </li>
               <br/>
@@ -85,12 +90,13 @@
     </div>
   </div>
   <div class="col text-center">
-            <%= f.submit 'Enter', class: 'btn btn-primary ', method: :patch %>
+            <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
           <% end %>
    </div>
    <div class="col">
-      <h4><%=@rfq.meats_ordered(@rfq.meats)%></h4>
-      <h4><%=@rfq.meats%></h4>
+      <h4><%=@rfq%></h4>
+      
+      <h4><%= @rfq.meats_ordered(@rfq.meats)%></h4>
    </div>
    
 </div>
