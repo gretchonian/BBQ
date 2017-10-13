@@ -26,13 +26,15 @@ class RfqsController < ApplicationController
   def show
     @rfq = Rfq.where(id: params[:id]).last
     @foods = Food.where(rfq_id: @rfq)
+    @meats= @foods.where(type: "meat")
+    @sides=@foods.where(type: "side")
   end
 
 
   private
 
   def rfq_params
-    params.require(:rfq).permit(:name, :email, :phone_number, meats: [])
+    params.require(:rfq).permit(:name, :email, :phone_number, meats: [], sides: [])
   end
 
 

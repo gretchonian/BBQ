@@ -1,43 +1,43 @@
 
 <script>
-  $(function() {
-    $('.meat').change(function(e) {
-      // var meatBox = $( this );
-      // console.log($input);
-      var meatBoxesToCheck = $('li input[type="checkbox"]');
-      var meatId = $(e.target).data("id");
-      var meatBoxChecked = $(e.target);
-      var checkedStatus = meatBoxChecked.selected ? "checked" : "";
-      meatBoxChecked.change(checkedStatus);
-      console.log(meatBoxChecked);
+  // $(function() {
+  //   $('.meat').change(function(e) {
+  //     // var meatBox = $( this );
+  //     // console.log($input);
+  //     var meatBoxesToCheck = $('li input[type="checkbox"]');
+  //     var meatId = $(e.target).data("id");
+  //     var meatBoxChecked = $(e.target);
+  //     var checkedStatus = meatBoxChecked.selected ? "checked" : "";
+  //     meatBoxChecked.change(checkedStatus);
+  //     console.log(meatBoxChecked);
             
-      meatBoxesToCheck.each(function() {
-        var meatBox = this;
+  //     meatBoxesToCheck.each(function() {
+  //       var meatBox = this;
         
-          if (this.checked == true) {
-            var meatName = $(e.target).data("meat");
-            var meatId = $(e.target).data("id");
-            var rfqId = $(e.target).data("rfq");
-            var selectedMeat = Boolean($(e.target).is(':checked'));  
-            // console.log("meatName:" + meatName);
-            // console.log("meatId:" + meatId);
-            // console.log("rfqId:" + rfqId);
-            // console.log("selectedMeat:" + selectedMeat);
-            // console.log("meatbox:"+ meatBox);
-            $.ajax({
-              type: 'PUT',
-              url: "/foods/" + meatId,
-              data: { food: {selected: selectedMeat} },
-            });
-          }
-      })
-    // $( ".meat" ).html(
-    //           ".attr( \"checked\" ): <b>" + meatBoxChecked.attr( "checked" ) + "</b><br>" +
-    //           ".prop( \"checked\" ): <b>" + meatBoxChecked.prop( "checked" ) + "</b><br>" +
-    //           ".is( \":checked\" ): <b>" + meatBoxChecked.is( ":checked" ) + "</b>" );
-    //           }).change();
-    });
-  });
+  //         if (this.checked == true) {
+  //           var meatName = $(e.target).data("meat");
+  //           var meatId = $(e.target).data("id");
+  //           var rfqId = $(e.target).data("rfq");
+  //           var selectedMeat = Boolean($(e.target).is(':checked'));  
+  //           // console.log("meatName:" + meatName);
+  //           // console.log("meatId:" + meatId);
+  //           // console.log("rfqId:" + rfqId);
+  //           // console.log("selectedMeat:" + selectedMeat);
+  //           // console.log("meatbox:"+ meatBox);
+  //           $.ajax({
+  //             type: 'PUT',
+  //             url: "/foods/" + meatId,
+  //             data: { food: {selected: selectedMeat} },
+  //           });
+  //         }
+  //     })
+  //   // $( ".meat" ).html(
+  //   //           ".attr( \"checked\" ): <b>" + meatBoxChecked.attr( "checked" ) + "</b><br>" +
+  //   //           ".prop( \"checked\" ): <b>" + meatBoxChecked.prop( "checked" ) + "</b><br>" +
+  //   //           ".is( \":checked\" ): <b>" + meatBoxChecked.is( ":checked" ) + "</b>" );
+  //   //           }).change();
+  //   });
+  // });
 </script>
 
 <div class="container">
@@ -52,16 +52,14 @@
         <ul class="meatlist">
         <br />
           <%= simple_form_for @rfq do |f| %>
-            <%=f.collection_check_boxes( :meats, @foods.all, :id, :name) do |b| %>
+            <%=f.collection_check_boxes( :meats, @meats.all, :id, :name ) do |b| %>
               <li>
-                <%=b.check_box(class: "meat") %>
-                <%=b.label(class: "meat")%>
+                <!-- :post, :author_ids, Author.all, :id, :name_with_initial -->
+                <!-- b.label(:"data-value" => b.value) { b.check_box + b.text } -->
+                <%=b.check_box(class: "meat") %><%=b.label("data-value": b.value, class: "meat_name")%>
             <%end%>
               </li>
               <br/>
-            <%= f.submit 'Enter', class: 'btn btn-primary', method: :patch %>
-          <% end %>
-          <div class="clr">
         </ul>
         
       </div>
@@ -75,20 +73,25 @@
       <div class="col-10 offset-1">
         <ul class="meatlist">
         <br />
-          <%= simple_form_for @rfq do |f| %>
-            <%=f.collection_check_boxes( :sides, @foods.all, :id, :name) do |b| %>
+            <%=f.collection_check_boxes( :sides, @sides.all, :id, :name) do |b| %>
               <li>
                 <%=b.check_box(class: "meat") %>
                 <%=b.label(class: "meat")%>
             <%end%>
               </li>
               <br/>
-            <%= f.submit 'Enter', class: 'btn btn-primary', method: :patch %>
-          <% end %>
-          <div class="clr">
         </ul>
       </div>
     </div>
   </div>
+  <div class="col text-center">
+            <%= f.submit 'Enter', class: 'btn btn-primary ', method: :patch %>
+          <% end %>
+   </div>
+   <div class="col">
+      <h4><%=@rfq.meats_ordered(@rfq.meats)%></h4>
+      <h4><%=@rfq.meats%></h4>
+   </div>
+   
 </div>
 

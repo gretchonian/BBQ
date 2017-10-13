@@ -28,6 +28,9 @@ class Rfq < ApplicationRecord
     Food.create(type: "side", name: "Smoked Bacon Macaroni and Cheese", rfq_id: id)
     Food.create(type: "side", name: "Fruit Platter", rfq_id: id)
   end
-  
+
+  def meats_ordered(meat_ids)  
+    return meat_ids.map{|e| e !="" ? Food.find(e).name : "" } 
+  end
 
 end
