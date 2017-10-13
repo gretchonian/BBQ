@@ -1,11 +1,11 @@
 <p>Hello!</p>
 <p>
   Congrats! <b>You have received a new quote request</b>!
-
+  <%= @rfq.name %>'s order is:
+  meats: <%= @meats %>
+  sides: <%= @sides %>
+</p>
+<p>
   Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %>
     today!
-</p>
-<p> <%= @rfq.name %>'s order is:
-  meats: 
-  sides: 
 </p>

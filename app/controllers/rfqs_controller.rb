@@ -8,7 +8,6 @@ class RfqsController < ApplicationController
     @rfq = Rfq.create(rfq_params)
     if @rfq.valid?
       redirect_to rfq_path(@rfq)
-      
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,9 +17,8 @@ class RfqsController < ApplicationController
   def update
     @rfq = Rfq.find(params[:id])
     @rfq.update_attributes(rfq_params)
-    # render json: @rfq
     NotificationMailer.rfq_submitted(@rfq).deliver
-    redirect_to rfq_path(@rfq)
+    redirect_to menu_path
   end
 
   def show

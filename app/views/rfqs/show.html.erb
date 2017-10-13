@@ -1,56 +1,30 @@
 
 <script>
   $(function() {
-    $('.meat').change(function(e) {
-      // var meatBox = $( this );
-      // console.log($input);
-      var meatBoxesToCheck = $('li input[type="checkbox"]');
-      var meatId = $(e.target).data("value");
-      var meatName = $(e.target).data("text");
-      var meatBoxChecked = $(e.target);
-      var checkedStatus = meatBoxChecked.selected ? "checked" : "";
-      meatBoxChecked.change(checkedStatus);
-      console.log(meatBoxChecked);
-      console.log(meatName);
-            
-  //     meatBoxesToCheck.each(function() {
-  //       var meatBox = this;
-        
+    $('.food').change(function(e) {    
           if (this.checked == true) {
-  //           var meatName = $(e.target).data("meat");
-            var meatId = $(e.target).data("value");
-  //           var rfqId = $(e.target).data("rfq");
-            var selectedMeat = Boolean($(e.target).is(':checked'));  
-  //           // console.log("meatName:" + meatName);
-  //           // console.log("meatId:" + meatId);
-  //           // console.log("rfqId:" + rfqId);
-  //           // console.log("selectedMeat:" + selectedMeat);
-  //           // console.log("meatbox:"+ meatBox);
+            var foodId = $(e.target).data("value");
+            var selectedFood = Boolean($(e.target).is(':checked'));  
             $.ajax({
               type: 'PUT',
-              url: "/foods/" + meatId,
-              data: { food: {selected: selectedMeat} },
+              url: "/foods/" + foodId,
+              data: { food: {selected: selectedFood} },
             });
           } else {
-            var deSelectedMeat = Boolean($(e.target).is(''));
+            var deSelectedFood = Boolean($(e.target).is(''));
              $.ajax({
               type: 'PUT',
-              url: "/foods/" + meatId,
-              data: { food: {selected: deSelectedMeat} },
+              url: "/foods/" + foodId,
+              data: { food: {selected: deSelectedFood} },
             });
           }
-  //     })
-  //   // $( ".meat" ).html(
-  //   //           ".attr( \"checked\" ): <b>" + meatBoxChecked.attr( "checked" ) + "</b><br>" +
-  //   //           ".prop( \"checked\" ): <b>" + meatBoxChecked.prop( "checked" ) + "</b><br>" +
-  //   //           ".is( \":checked\" ): <b>" + meatBoxChecked.is( ":checked" ) + "</b>" );
-  //   //           }).change();
     });
   });
 </script>
-
-<div class="container">
+<br/>
+<div class="frosty container">
   <div class="row">
+    <!-- <h1>Choose From Our Menu</h1> -->
     <div class="col-12 col-sm-6">
     <br/>
     <br/>
@@ -58,12 +32,15 @@
         <h3>Smoked Meat Selection</h3>
       </div>
       <div class="col-10 offset-1">
-        <ul class="meatlist">
+        <ul id="meatlist">
         <br />
           <%= simple_form_for @rfq do |f| %>
             <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
-              <li><%=b.check_box("data-value": b.value, "data-text": b.text, class: "meat") %><%=b.label(class: "meat_name")%>
-            <%end%></li>
+              <li>
+                <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                <%=b.label(class: "meat_name")%>
+            <%end%>
+              </li>
             <br/>
         </ul>
         
@@ -76,12 +53,12 @@
         <h3>Side Dishes</h3>
       </div>
       <div class="col-10 offset-1">
-        <ul class="sidelist">
+        <ul id="sidelist">
         <br />
-            <%=f.collection_check_boxes( :sides, @sides.all, :id, :name) do |b| %>
+            <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
               <li>
-                <%=b.check_box(class: "side") %>
-                <%=b.label("data-value": b.value, class: "side_name")%>
+                <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                <%=b.label(class: "side_name")%>
             <%end%>
               </li>
               <br/>
@@ -93,11 +70,7 @@
             <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
           <% end %>
    </div>
-   <div class="col">
-      <h4><%=@rfq%></h4>
-      
-      <h4><%= @rfq.meats_ordered(@rfq.meats)%></h4>
-   </div>
    
 </div>
+
 

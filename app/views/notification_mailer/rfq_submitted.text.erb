@@ -1,4 +1,8 @@
 Hello!
 
-Congrats! You have received a new quote request. 
+Congrats! You have received a new quote request.
+<%= @rfq.name %>'s order is:
+  meats: <%=@meats%>
+  sides: <%=@sides%>
+   
 Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %> today!
