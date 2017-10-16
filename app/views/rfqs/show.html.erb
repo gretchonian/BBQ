@@ -2,75 +2,77 @@
 <script>
   $(function() {
     $('.food').change(function(e) {    
-          if (this.checked == true) {
-            var foodId = $(e.target).data("value");
-            var selectedFood = Boolean($(e.target).is(':checked'));  
-            $.ajax({
-              type: 'PUT',
-              url: "/foods/" + foodId,
-              data: { food: {selected: selectedFood} },
-            });
-          } else {
-            var deSelectedFood = Boolean($(e.target).is(''));
-             $.ajax({
-              type: 'PUT',
-              url: "/foods/" + foodId,
-              data: { food: {selected: deSelectedFood} },
-            });
-          }
+      if (this.checked == true) {
+        var foodId = $(e.target).data("value");
+        var selectedFood = Boolean($(e.target).is(':checked'));  
+        $.ajax({
+          type: 'PUT',
+          url: "/foods/" + foodId,
+          data: { food: {selected: selectedFood} },
+        });
+      } else {
+        var deSelectedFood = Boolean($(e.target).is(''));
+         $.ajax({
+          type: 'PUT',
+          url: "/foods/" + foodId,
+          data: { food: {selected: deSelectedFood} },
+        });
+      }
     });
   });
 </script>
 <br/>
 <div class="frosty container">
   <div class="row">
+    
     <!-- <h1>Choose From Our Menu</h1> -->
-    <div class="col-12 col-sm-6">
-    <br/>
-    <br/>
-      <div class="text-center">
-        <h3>Smoked Meat Selection</h3>
-      </div>
-      <div class="col-10 offset-1">
-        <ul id="meatlist">
-        <br />
-          <%= simple_form_for @rfq do |f| %>
-            <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
-              <li>
-                <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
-                <%=b.label(class: "meat_name")%>
-            <%end%>
-              </li>
-            <br/>
-        </ul>
-        
-      </div>
-    </div>
-    <div class="col-12 col-sm-6">
-    <br/>
-    <br/>
-      <div class="text-center">
-        <h3>Side Dishes</h3>
-      </div>
-      <div class="col-10 offset-1">
-        <ul id="sidelist">
-        <br />
-            <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
-              <li>
-                <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
-                <%=b.label(class: "side_name")%>
-            <%end%>
-              </li>
+      <div class="col-12 col-sm-6">
+      <br/>
+      <br/>
+        <div class="text-center">
+          <h3>Smoked Meat Selection</h3>
+        </div>
+        <div class="col-10 offset-1">
+          <ul id="meatlist">
+          <br />
+            <%= simple_form_for @rfq do |f| %>
+              <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
+                <li>
+                  <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                  <%=b.label(class: "meat_name")%>
+              <%end%>
+                </li>
               <br/>
-        </ul>
+          </ul>
+          
+        </div>
       </div>
-    </div>
+      <div class="col-12 col-sm-6">
+      <br/>
+      <br/>
+        <div class="text-center">
+          <h3>Side Dishes</h3>
+        </div>
+        <div class="col-10 offset-1">
+          <ul id="sidelist">
+          <br />
+              <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
+                <li>
+                  <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                  <%=b.label(class: "side_name")%>
+              <%end%>
+                </li>
+                <br/>
+          </ul>
+        </div>
+      </div>
+  
+    <div class="col text-center">
+              <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
+            <% end %>
+     </div>
+    
   </div>
-  <div class="col text-center">
-            <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
-          <% end %>
-   </div>
-   
 </div>
 
 

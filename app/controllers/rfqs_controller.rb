@@ -18,7 +18,8 @@ class RfqsController < ApplicationController
     @rfq = Rfq.find(params[:id])
     @rfq.update_attributes(rfq_params)
     NotificationMailer.rfq_submitted(@rfq).deliver
-    redirect_to menu_path
+    NotificationMailer.rfq_thankyou(@rfq).deliver
+    redirect_to root_path
   end
 
   def show
