@@ -57,7 +57,7 @@ class Rfq < ApplicationRecord
   end
 
   def send_rfq
-  NotificationMailer.rfq_submitted(self).deliver
+    NotificationMailer.rfq_submitted(self).deliver
   end
 
   def send_confirmation

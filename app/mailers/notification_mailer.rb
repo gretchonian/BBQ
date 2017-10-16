@@ -11,10 +11,9 @@ class NotificationMailer < ApplicationMailer
 
   def rfq_thankyou(rfq)
     @rfq = rfq
-    @email = rfq.email
     @meats = rfq.foods_ordered(rfq.meats).join(', ')
     @sides = rfq.foods_ordered(rfq.sides).join(', ')
-    mail(to: @email,
+    mail(to: @rfq.email,
       subject: "We have received your quote request")
   end
 end

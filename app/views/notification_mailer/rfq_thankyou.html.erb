@@ -1,14 +1,16 @@
 <p>Hello!</p>
 <p>
-  <b>Thank you for submitting for a quote for BBQ.</b>!
+  <b>Thank you for submitting for a quote for Off the Bone BBQ</b>!
 </p>
 <p>
-  <%= @rfq.name %>'s order is:
-  people: <%= @rfq.count %>
-  event type: <%= @rfq.catering_type_humanized %>
-  meats: <%= @meats %>
-  sides: <%= @sides %>
+  Here is a summary of your quote request:
 </p>
+<ul>
+  <li>Number of People: <%= @rfq.count %></li>
+  <li>Type of Event: <%= @rfq.catering_type_humanized %></li>
+  <li>Meats Selected: <%= @meats %></li>
+  <li>Sides Selected: <%= @sides %></li>
+</ul>
 <p>
   Again, thank you for contacting Off the Bone BBQ today!
 </p>
