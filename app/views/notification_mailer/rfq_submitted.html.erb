@@ -3,10 +3,11 @@
   Congrats! <b>You have received a new quote request</b>!
 </p>
 <p>
-  <%= @rfq.name %>'s order is for a <%= @rfq.catering_type_humanized %> of <%= @rfq.count %> people:
-  meats: <%= @meats %>
-  sides: <%= @sides %>
-</p>
+  <%= @rfq.name %>'s order is for a <%= @rfq.catering_type_humanized %> for <%= @rfq.count %> people.
+<ul>
+  <li>Meats Selected: <%= @meats %></li>
+  <li>Sides Selected: <%= @sides %></li>
+</ul>
 <p>
   Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %>
     today!
