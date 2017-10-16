@@ -17,9 +17,7 @@ class RfqsController < ApplicationController
   def update
     @rfq = Rfq.find(params[:id])
     @rfq.update_attributes(rfq_params)
-    NotificationMailer.rfq_submitted(@rfq).deliver
-    NotificationMailer.rfq_thankyou(@rfq).deliver
-    redirect_to root_path
+    redirect_to thankyou_path
   end
 
   def show
@@ -29,11 +27,14 @@ class RfqsController < ApplicationController
     @sides=@foods.where(type: "side")
   end
 
+  def thankyou
+  end
+
 
   private
 
   def rfq_params
-    params.require(:rfq).permit(:name, :email, :phone_number, meats: [], sides: [])
+    params.require(:rfq).permit(:name, :email, :phone_number, :count, :catering_type, meats: [], sides: [])
   end
 
 

@@ -8,6 +8,8 @@
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :phone_number %>
+    <%= f.input :count, as: :select, collection: Rfq::HEAD_COUNT %>
+    <%= f.input :catering_type, as: :select, collection: Rfq::CATERING_TYPE %>
     <br/>
     <%= f.submit 'Enter', class: 'btn btn-primary' %>
   <% end %>
