@@ -32,35 +32,37 @@
           </div>
         </div>
       </nav>
-      <%= yield %>
-    </div>    
-    <div id="footer">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md text-center">
-            <%= link_to new_rfq_path do %>
-              <i class="fa fa-telegram"></i>&nbsp;&nbsp;Request a Quote
-            <% end %>
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md text-center">
+              <%= link_to new_rfq_path do %>
+                <i class="fa fa-telegram"></i>&nbsp;&nbsp;Request a Quote
+              <% end %>
+            </div>
+            <div class="col-md text-center"> 
+              <%= link_to "mailto:offthebonebbq1@gmail.com" do %> 
+                <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Us
+              <% end %>
+            </div>
+            <div class="col-md text-center">
+              <%= link_to "tel:+1-541-630-4720" do%>
+                <i class="fa fa-phone"></i>
+                  &nbsp;541-630-4720
+              <% end %>
+            </div>
           </div>
-          <div class="col-md text-center"> 
-            <%= link_to "mailto:offthebonebbq1@gmail.com" do %> 
-              <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Us
-            <% end %>
+          <br />
+          <div class="credit col-12 text-center">
+            <%=link_to 'http://zigzagwebdesigns.com' do %>
+              website by: zigzagwebdesigns.com
+            <%end%>
           </div>
-          <div class="col-md text-center">
-            <%= link_to "tel:+1-541-630-4720" do%>
-              <i class="fa fa-phone"></i>
-                &nbsp;541-630-4720
-            <% end %>
-          </div>
-        </div>
-        <br />
-        <div class="credit col-12 text-center">
-          <%=link_to 'http://zigzagwebdesigns.com' do %>
-            website by: zigzagwebdesigns.com
-          <%end%>
         </div>
       </div>
-    </div>
+    </div> 
   </body>
 </html>
