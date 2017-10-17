@@ -9,7 +9,7 @@ class Rfq < ApplicationRecord
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :on => :create
   validates_format_of :phone_number, :with => /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :on => :create
   validates_presence_of :count 
-  validates_presence_of :catering_type
+  
 
   
   def meat_selection
@@ -39,18 +39,33 @@ class Rfq < ApplicationRecord
     return food_ids.map{|e| Food.find(e).name } 
   end
 
-  HEAD_COUNT = {
-    '45 to 75 people': '45-75',
-    '76 to 100 people': '76-100',
-    '101 to 150 people': '101-150',
-    '151 to 300 people': '151-300',
-    '301 people or more': '301+',
-  }
+  def people_attending
+    gets.chomp().to_i
+  end
+
+  # HEAD_COUNT = {
+  #   '45 to 75 people': '45-75',
+  #   '76 to 100 people': '76-100',
+  #   '101 to 150 people': '101-150',
+  #   '151 to 300 people': '151-300',
+  #   '301 people or more': '301+',
+  # }
 
    CATERING_TYPE = {
     'Catering Service': true,
     'Drop-Off': false
   }
+
+  def pricing
+  #   1 Meat, 2 sides $13-$15
+  # 2 Meats, 2 sides $15-$18
+  # 3 Meats, 2 sides $18-$21
+  # Additional sides $2 per person 
+
+  # 1 Meat  $10-$12
+  # 2 Meats $12-$15
+  # 3 Meats $15-$18 
+  end
 
   def catering_type_humanized
     CATERING_TYPE.invert[self.catering_type]

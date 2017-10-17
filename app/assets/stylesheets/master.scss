@@ -1,4 +1,9 @@
 @import "bootstrap";
+@import "font-awesome";
+
+abbr[title="required"] {
+  display: none;
+}
 
 a:hover {
   color: white;
@@ -16,6 +21,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Architects Daughter', cursive;
+  color: white;
 }
 
 .btn {
@@ -38,16 +44,15 @@ body {
 .contact {
 }
 
+.credit {
+  font-size: 10px;
+}
 
 .frosty {
   background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 20px;
   box-shadow: 0px 1px 3px #2a2a2a;
-}
-
-h1,h2,h3,h4,h5,h6,p,li,a {
-  color:white;
 }
 
 html {
@@ -60,6 +65,7 @@ html {
   font-size: 20px;
   letter-spacing: 2px;
   padding: 10px 40px;
+  font-family: 'Alice', serif;
 }
 
 .img {
@@ -84,8 +90,13 @@ li {
   background-color: black;
 }
 
+span.help-block{
+  color: #FF5733;
+}
+
 ul {
   list-style-type: none; 
+  font-size: 20px;
 }
 
 ul.food_list {

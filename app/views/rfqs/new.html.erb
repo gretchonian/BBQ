@@ -1,17 +1,21 @@
 
 <br/>
-
+<br/>
 <div class="frosty col-10 offset-1">
-  <h1>Enter Your Contact Information</h1>
-  <%= simple_form_for @rfq do |f| %>
+  <div class="col-10 offset-1">
     <br/>
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :phone_number %>
-    <%= f.input :count, as: :select, collection: Rfq::HEAD_COUNT %>
-    <%= f.input :catering_type, as: :select, collection: Rfq::CATERING_TYPE %>
     <br/>
-    <%= f.submit 'Enter', class: 'btn btn-primary' %>
-  <% end %>
-
+    <h2>Please Enter Your Contact Information</h2>
+    <%= simple_form_for @rfq do |f| %>
+      <br/>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :phone_number, placeholder: "123-123-1234"%>
+      <%= f.input :count, title: "People Attending", placeholder: "How many people will be eating?", as: :select, collection: 0..400, step: 1 %>
+      <%= f.input :catering_type, placeholder: "We provide full-service catering or can drop-off your BBQ.", as: :select, collection: Rfq::CATERING_TYPE %>
+      <br/>
+      <%= f.submit 'Enter', class: 'btn btn-primary' %>
+    <% end %>
+    <br/>
+  </div>
 </div>

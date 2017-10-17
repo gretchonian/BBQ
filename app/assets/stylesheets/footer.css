@@ -13,7 +13,7 @@ html, body {
   padding: 10px 0px;
   position: relative;
   width: 100%;
-  min-height: 70px;
+  min-height: auto;
   background-color: black;
   color: white;
   font-weight: 100;
@@ -22,6 +22,7 @@ html, body {
 
 #footer a {
   color: white;
+  font-family: 'Alice', serif;
 }
 
 #flex-content-container {

@@ -17,14 +17,18 @@ class RfqsController < ApplicationController
   def update
     @rfq = Rfq.find(params[:id])
     @rfq.update_attributes(rfq_params)
-    redirect_to thankyou_path
+    if @rfq.valid?
+      redirect_to thankyou_path
+    else
+      render :update, status: :unprocessable_entity
+    end
   end
 
   def show
     @rfq = Rfq.where(id: params[:id]).last
-    @foods = Food.where(rfq_id: @rfq)
-    @meats= @foods.where(type: "meat")
-    @sides=@foods.where(type: "side")
+    foods = Food.where(rfq_id: @rfq)
+    @meats= foods.where(type: "meat")
+    @sides=foods.where(type: "side")
   end
 
   def thankyou

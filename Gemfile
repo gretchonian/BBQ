@@ -69,3 +69,6 @@ gem 'simple_form'
 gem "figaro"
 
 gem 'jquery-ui-rails'
+
+# Add symbols thru awesome fonts
+gem "font-awesome-rails"
