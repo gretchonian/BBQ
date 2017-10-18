@@ -2,12 +2,12 @@
 <br/>
 
 <div class="frosty text-center col-10 offset-1">
-
-  <h1>Menu</h1>
-  <br/>
+  <div class="container">
+    <h1>Menu</h1>
+    <br/>
     <div class="row">
       <div id=meatlist class="col-12 col-sm-6">
-        <h3>Smoked Meat Selection</h3>
+        <h3>Smoked Meat</h3>
         <ul class="food_list">
           <br />
           <li> Pulled Pork</li>
@@ -20,6 +20,7 @@
           <li> German Sausages and Hot Links</li>
        </ul>
       </div>
+
 
       <div class="col-12 col-sm-6">
         <h3>Side Dishes</h3>
@@ -36,8 +37,9 @@
         </ul>
       </div>
     </div>
-    <br/>
-    <%= link_to "Request a Quote", new_rfq_path, class: "btn btn-primary" %>
+  </div>
+  <br/>
+  <%= link_to "Request a Quote", new_rfq_path, class: "btn btn-primary" %>
 </div>
 <!--   1 Meat, 2 sides $13-$15
 2 Meats, 2 sides $15-$18

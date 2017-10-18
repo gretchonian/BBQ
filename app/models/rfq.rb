@@ -18,7 +18,8 @@ class Rfq < ApplicationRecord
     Food.create(type: "meat", name: "Tri-Tip", rfq_id: id)
     Food.create(type: "meat", name: "Brisket", rfq_id: id)
     Food.create(type: "meat", name: "Pulled Beef", rfq_id: id)
-    Food.create(type: "meat", name: "Ribs (St. Louis or Baby Back)", rfq_id: id)
+    Food.create(type: "meat", name: "Ribs (St. Louis)", rfq_id: id)
+    Food.create(type: "meat", name: "Ribs (Baby Back)", rfq_id: id)
     Food.create(type: "meat", name: "Chicken Thighs", rfq_id: id)
     Food.create(type: "meat", name: "German Sausages and Hot Links", rfq_id: id)
   end
@@ -30,7 +31,7 @@ class Rfq < ApplicationRecord
     Food.create(type: "side", name: "Macaroni Salad", rfq_id: id)
     Food.create(type: "side", name: "Green Salad", rfq_id: id)
     Food.create(type: "side", name: "Caeser Salad", rfq_id: id)
-    Food.create(type: "side", name: "Smoked Bacon Macaroni and Cheese", rfq_id: id)
+    Food.create(type: "side", name: "Smoked Bacon Mac and Cheese", rfq_id: id)
     Food.create(type: "side", name: "Fruit Platter", rfq_id: id)
   end
 
@@ -39,9 +40,9 @@ class Rfq < ApplicationRecord
     return food_ids.map{|e| Food.find(e).name } 
   end
 
-  def people_attending
-    gets.chomp().to_i
-  end
+  # def people_attending
+  #   gets.chomp().to_i
+  # end
 
   # HEAD_COUNT = {
   #   '45 to 75 people': '45-75',

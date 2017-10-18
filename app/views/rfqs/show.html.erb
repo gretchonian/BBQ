@@ -22,17 +22,21 @@
   });
 </script>
 <br/>
-<div class="frosty container">
-  <div class="row">
-    
-    <!-- <h1>Choose From Our Menu</h1> -->
+<br/>
+<div class="frosty">
+  <div class="container">
+    <div class="row">
+      <br/>
+      <br/>
+      <div class="col-12 text-center">
+        <h1>Choose From Our Menu</h1>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-12 col-sm-6">
-      <br/>
-      <br/>
-        <div class="text-center">
-          <h3>Smoked Meat Selection</h3>
-        </div>
-        <div class="col-10 offset-1">
+        <br/>
+        <h3 class="text-center"><u>Smoked Meat</u></h3>
+        <div class="col-12">
           <ul id="meatlist">
           <br />
             <%= simple_form_for @rfq do |f| %>
@@ -44,16 +48,12 @@
                 </li>
               <br/>
           </ul>
-          
         </div>
       </div>
       <div class="col-12 col-sm-6">
-      <br/>
-      <br/>
-        <div class="text-center">
-          <h3>Side Dishes</h3>
-        </div>
-        <div class="col-10 offset-1">
+        <br/>
+        <h3 class="text-center"><u>Side Dishes</u></h3>
+        <div class="col-12">
           <ul id="sidelist">
           <br />
               <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
@@ -66,12 +66,12 @@
           </ul>
         </div>
       </div>
-  
-    <div class="col text-center">
-              <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
-            <% end %>
-     </div>
     
+      <div class="col text-center">
+                <%= f.submit 'Enter', class: 'btn btn-primary ', method: :put %>
+              <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

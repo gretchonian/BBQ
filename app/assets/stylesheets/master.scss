@@ -20,8 +20,12 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Alice', serif;
   color: white;
+}
+
+h1 {
+  font-family: 'ryeregular';
 }
 
 .btn {
@@ -51,7 +55,8 @@ body {
 .frosty {
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   box-shadow: 0px 1px 3px #2a2a2a;
 }
 
@@ -62,10 +67,10 @@ html {
 
 .h_links a{
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 2px;
   padding: 10px 40px;
-  font-family: 'Alice', serif;
+  font-family: 'ryeregular';
 }
 
 .img {
@@ -82,9 +87,9 @@ html {
   margin-bottom: 30px;
 }
 
-li {
+/*li {
   text-align: left;
-}
+}*/
 
 .navbar {
   background-color: black;
@@ -100,7 +105,15 @@ ul {
 }
 
 ul.food_list {
-  margin-left: 60px;
+  padding-left: 0px;
+}
+
+ul#meatlist  {
+  padding-left: 70px;
+}
+
+ul#sidelist { 
+  padding-left: 70px; 
 }
 
 
