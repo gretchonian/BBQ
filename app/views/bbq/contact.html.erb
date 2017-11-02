@@ -1,8 +1,18 @@
 <br />
-
-<div class= "frosty col-10 offset-1 text-center">
-  <h1>Contact</h1>
-  <br />
-  <%= image_tag 'bbq5.jpg', class: 'img-fluid' %>
-
+<div class="fullheight">
+  <div class= "frosty col-10 offset-1 text-center">
+    <h1>Contact</h1>
+    <br />
+    <div>
+    <%= link_to "mailto:offthebonebbq1@gmail.com", class: "btn btn-success" do %>
+      Email Us
+     <% end %>
+   </div>
+   <br/>
+     <p>or</p>
+     <div>
+     <%= link_to "Request a Quote", new_rfq_path, class: "btn btn-primary" %>
+   </div>
+   <br/>
+  </div>
 </div>

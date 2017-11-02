@@ -1,6 +1,22 @@
 
 <script>
   $(function() {
+    var s = $('.food');
+    touchStart = function (event) {
+        event.preventDefault();
+        $(this).addClass("touched");
+    };
+     touchEnd = function (event) {
+        event.preventDefault();
+        $(this).removeClass("touched");
+    };
+    s.ontouchstart = touchStart;
+    s.ontouchend = touchEnd;
+    $(s).bind("touchstart mousedown", function (e){
+      console.log(e.type);
+    });
+    $(s).bind("touchend mouseup", function (e) {console.log(e.type);
+    });
     $('.food').change(function(e) {    
       if (this.checked == true) {
         var foodId = $(e.target).data("value");

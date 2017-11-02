@@ -11,7 +11,7 @@
       <%= f.input :name, placeholder: "John Smith" %>
       <%= f.input :email, placeholder: "smith@email.com"%>
       <%= f.input :phone_number, placeholder: "541-123-1234"%>
-      <%= f.input :count, as: :select, collection: 40..400, step: 1, default: 40 %>
+      <%= f.input :count, as: :select, collection: 40..400, step: 5, default: 40 %>
       <%= f.input :catering_type, as: :select, collection: Rfq::CATERING_TYPE, default: "Catering Service" %>
       <br/>
       <div class="text-center">
