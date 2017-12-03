@@ -8,7 +8,11 @@
   <li>Meats Selected: <%= @meats %></li>
   <li>Sides Selected: <%= @sides %></li>
 </ul>
+<% if @rfq.comments != "" %>
+<p>They also provided these comments with their order:</p>
+<p><%=@rfq.comments%></p>
 <p>
+<% end %>
   Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %>
     today!
 </p>

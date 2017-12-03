@@ -38,7 +38,7 @@ class RfqsController < ApplicationController
   private
 
   def rfq_params
-    params.require(:rfq).permit(:name, :email, :phone_number, :people_attending, :catering_type, meats: [], sides: [])
+    params.require(:rfq).permit(:name, :email, :phone_number, :people_attending, :catering_type, :comments, meats: [], sides: [])
   end
 
 

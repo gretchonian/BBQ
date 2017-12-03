@@ -82,8 +82,12 @@
           </ul>
         </div>
       </div>
-    
-      <div class="col text-center">
+      <div class="col-12 col-sm-10 offset-sm-1">
+              <%= f.input :comments %>
+      </div>
+      <br/>
+      <br/>
+      <div class="col-12 text-center">
                 <%= f.submit 'Submit for Quote', class: 'btn btn-primary ', method: :put %>
               <% end %>
       </div>
