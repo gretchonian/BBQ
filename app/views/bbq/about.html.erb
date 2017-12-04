@@ -1,39 +1,42 @@
 <br/>
-<div class="frosty col-10 offset-1">
-  <div class="about">
-    <h1>About</h1>
-    <br/>
-      <h2>Meet the men that make the meat</h2>
-  </div>
-  <br/>
+<div class="fullheight">
+  <div class="frosty col-10 offset-1">
+    <div class="about">
+      <h1>About</h1>
+      <br/>
+        <h2>Meet the men that make the meat.</h2>
+    <!-- </div> -->
+      <br/>
 
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <%= image_tag 'doug.jpg', class: 'img' %>
-      </div>
-       <div class="col text-center">
-        <%= image_tag 'jason.jpg', class: 'img' %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col text-center">
-      <br/>
-        <h3>Doug - Owner</h3>
-      </div>
-      <div class="col text-center">
-      <br/>
-        <h3>Jason - Owner</h3>
-      </div>
-    </div>
-    <br/>
-    <br/>
-    <div class="row">
-      <div class="col text-center">
-        <h4>Off the Bone BBQ has been providing quality-smoked meats and sides in the Rogue Valley since 2012. We provide full-catering for any event or occassion. We also provide a drop-off service if your event is in a more casual setting.</h4>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <%= image_tag 'doug.jpg', class: 'img' %>
+          </div>
+           <div class="col text-center">
+            <%= image_tag 'jason.jpg', class: 'img' %>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col text-center">
+          <br/>
+            <h3>Doug - Owner</h3>
+          </div>
+          <div class="col text-center">
+          <br/>
+            <h3>Jason - Owner</h3>
+          </div>
+        </div>
         <br/>
-        <h4>Off the Bone BBQ has whatever mouth-watering meats or sides you crave. Check out our <%=link_to "menu", menu_path, class: "about_link" %> and <%=link_to "request a quote", new_rfq_path, class: "about_link"%> today!</h4>
+        <br/>
+        <div class="row">
+          <div class="col-sm-10 offset-sm-1 text-center">
+            <h4>Off the Bone BBQ has been providing quality-smoked meats and sides in the Rogue Valley since 2012. We provide full-catering for any event or occassion. We also provide a drop-off service if your event is in a more casual setting.</h4>
+            <br/>
+            <h4>Off the Bone BBQ has whatever mouth-watering meats or sides you crave. Check out our <%=link_to "menu", menu_path, class: "about_link" %> and <%=link_to "request a quote", new_rfq_path, class: "about_link"%> today!</h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>

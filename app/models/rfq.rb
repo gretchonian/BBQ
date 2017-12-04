@@ -9,7 +9,7 @@ class Rfq < ApplicationRecord
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :on => :create
   validates_format_of :phone_number, :with => /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, :on => :create
   validates_presence_of :people_attending
-  validates_presence_of :catering_type
+  validates :catering_type, inclusion: { in: [true, false] }
   
 
   
@@ -40,18 +40,6 @@ class Rfq < ApplicationRecord
     food_ids.keep_if{ |v| v != "" }  
     return food_ids.map{|e| Food.find(e).name } 
   end
-
-  # def people_attending
-  #   gets.chomp().to_i
-  # end
-
-  # HEAD_COUNT = {
-  #   '45 to 75 people': '45-75',
-  #   '76 to 100 people': '76-100',
-  #   '101 to 150 people': '101-150',
-  #   '151 to 300 people': '151-300',
-  #   '301 people or more': '301+',
-  # }
 
    CATERING_TYPE = {
     'Catering Service': true,

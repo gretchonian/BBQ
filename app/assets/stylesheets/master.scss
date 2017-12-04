@@ -12,13 +12,11 @@ a:hover {
 .about {
   text-align: center;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .about_link {
-  color: white;
-}
-.about_link:hover {
-  /*color:black;*/
+  color: #FF5733;
 }
 
 body { 
@@ -60,7 +58,7 @@ h1 {
 }
 
 .fullheight {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 .frosty {
@@ -97,10 +95,6 @@ html {
 .index-bottom {
   margin-bottom: 30px;
 }
-
-/*li {
-  text-align: left;
-}*/
 
 .navbar {
   background-color: black;
