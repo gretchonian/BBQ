@@ -16,8 +16,9 @@ a:hover {
 }
 
 .about_img {
-  height: auto;
+  height: 100%;
   width: 300px;
+  object-fit: contain;
 }
 
 .about_link {
@@ -115,6 +116,10 @@ html {
 
 .navbar {
   background-color: black;
+}
+
+.navbar a {
+color: #E44725;
 }
 
 span.help-block{
