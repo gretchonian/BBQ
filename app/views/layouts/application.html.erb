@@ -39,19 +39,39 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md text-center">
-              <%= link_to new_rfq_path do %>
-                <i class="fa fa-telegram"></i>&nbsp;&nbsp;Request a Quote
-              <% end %>
-            </div>
-            <div class="col-md text-center"> 
-              <%= link_to "mailto:offthebonebbq1@gmail.com" do %> 
-                <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Us
-              <% end %>
+              <u>CONTACT</u>
+              <div class=""> 
+                <%= link_to "mailto:offthebonebbq1@gmail.com" do %> 
+                  <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Us
+                <% end %>
+              </div>
+              <div class="">
+                <%= link_to "tel:+1-541-630-4720" do%>
+                  <i class="fa fa-phone"></i>
+                    &nbsp;541-630-4720
+                <% end %>
+              </div>
             </div>
             <div class="col-md text-center">
-              <%= link_to "tel:+1-541-630-4720" do%>
-                <i class="fa fa-phone"></i>
-                  &nbsp;541-630-4720
+              <u>REQUEST A QUOTE</u>
+              <div>
+                <%= link_to new_rfq_path do %>
+                  <i class="fa fa-telegram"></i>&nbsp;&nbsp;Request a Quote
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md text-center">
+              <u>SOCIAL</u>
+             <div class="">
+              <%= link_to "https://facebook.com/OffTheBoneBbqGrill" do%>
+                <i class="fa fa-facebook"></i>
+                  &nbsp;Facebook
+              <% end %>
+            </div>
+             <div class="">
+              <%= link_to "https://yelp.com/biz/off-the-bone-bbq-central-point" do%>
+                <i class="fa fa-yelp"></i>
+                  &nbsp;Yelp
               <% end %>
             </div>
           </div>
