@@ -41,13 +41,13 @@
 <div class="fullheight">
   <div class="frosty">
     <div class="container">
-      <div class="row">
+      <div class="col-10 offset-1">
         <br/>
         <br/>
-        <div class="col-12 text-center">
+        <div class="text-center">
           <h1>Choose From Our Menu</h1>
         </div>
-      </div>
+      
       <div class="row">
         <div class="col-12 col-sm-6">
           <br/>
@@ -62,7 +62,6 @@
                     <%=b.label(class: "meat_name")%>
                 <%end%>
                   </li>
-                <br/>
             </ul>
           </div>
         </div>
@@ -78,7 +77,6 @@
                     <%=b.label(class: "side_name")%>
                 <%end%>
                   </li>
-                  <br/>
             </ul>
           </div>
         </div>
@@ -87,10 +85,14 @@
         </div>
         <br/>
         <br/>
+        <br/>
+        <br/>
+        <br/>
         <div class="col-12 text-center">
                   <%= f.submit 'Submit for Quote', class: 'btn btn-primary ', method: :put %>
                 <% end %>
         </div>
+      </div>
       </div>
     </div>
   </div>

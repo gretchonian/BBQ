@@ -32,7 +32,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Alice', serif;
-  color: white;
+  color: #FFEE5F;
 }
 
 h1 {
@@ -64,11 +64,11 @@ h1 {
 }
 
 .credit a {
-  color: yellow;
+  color: #FBE317;
 }
 
 .f_link a {
-  color: yellow;
+  color: #FBE317;
 }
 
 .main {
@@ -77,10 +77,11 @@ h1 {
 
 .frosty {
   background: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #FFEE5F;
   padding-top: 40px;
   padding-bottom: 40px;
   box-shadow: 0px 1px 3px #2a2a2a;
+  border-radius: 15px;
 }
 
 .f_title {
