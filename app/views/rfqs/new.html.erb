@@ -10,9 +10,10 @@
       <%= simple_form_for @rfq do |f| %>
         <br/>
         <%= f.input :name, placeholder: "John Smith" %>
+        <%= f.input :company_name, placeholder: "Business Name" %>
         <%= f.input :email, placeholder: "smith@email.com"%>
         <%= f.input :phone_number, placeholder: "541-123-1234"%>
-        <%= f.input :people_attending, as: :select, collection: 40..400, step: 5 %>
+        <%= f.input :people_attending, as: :select, collection: 25..400, step: 5 %>
         <%= f.input :catering_type, as: :select, collection: Rfq::CATERING_TYPE %>
         <br/>
         <div class="text-center">

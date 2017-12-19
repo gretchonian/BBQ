@@ -23,6 +23,7 @@ class Rfq < ApplicationRecord
     Food.create(type: "meat", name: "Ribs (Baby Back)", rfq_id: id)
     Food.create(type: "meat", name: "Chicken Thighs", rfq_id: id)
     Food.create(type: "meat", name: "German Sausages and Hot Links", rfq_id: id)
+    Food.create(type: "meat", name: "Seasonal Vegetarian Option", rfq_id: id)
   end
 
   def side_selection

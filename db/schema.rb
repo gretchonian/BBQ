@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203011731) do
+ActiveRecord::Schema.define(version: 20171219214432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171203011731) do
     t.boolean  "catering_type"
     t.integer  "people_attending"
     t.text     "comments"
+    t.string   "company_name"
   end
 
 end
