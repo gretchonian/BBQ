@@ -3,16 +3,16 @@
   Congrats! <b>You have received a new quote request</b>!
 </p>
 <p>
-  <%= @rfq.name %>'s order is for a <%= @rfq.catering_type_humanized %> for <%= @rfq.people_attending %> people.
+  <%= @rfq.name %>'s order is for a <%= @rfq.catering_type_humanized %> on <%= @rfq.event_date %> for <%= @rfq.people_attending %> people at a <%= @rfq.event_type %><% if @rfq.company_name %>for <%= @rfq.company_name %><%end%>.
 <ul>
   <li>Meats Selected: <%= @meats %></li>
   <li>Sides Selected: <%= @sides %></li>
 </ul>
 <% if @rfq.comments != "" %>
-<p>They also provided these comments with their order:</p>
-<p><%=@rfq.comments%></p>
-<p>
+  <p>They also provided these comments with their order:</p>
+  <p><%=@rfq.comments%></p> 
 <% end %>
+<p>
   Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %>
     today!
 </p>
