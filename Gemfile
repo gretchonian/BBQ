@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # rspec for TDD
   gem 'rspec-rails', '~> 3.5'
+  #auto population
+  gem "factory_girl_rails", "~>4.0"
 end
 
 group :development do
@@ -62,3 +64,11 @@ end
 
 #simpleform
 gem 'simple_form'
+
+#ENV secure storage
+gem "figaro"
+
+gem 'jquery-ui-rails'
+
+# Add symbols thru awesome fonts
+gem "font-awesome-rails"

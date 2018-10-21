@@ -1,15 +1,40 @@
 
 <br/>
-
-<div class="frosty col-10 offset-1">
-  <h1>Enter Your Contact Information</h1>
-  <%= simple_form_for @rfq do |f| %>
-    <br/>
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :phone_number %>
-    <br/>
-    <%= f.submit 'Enter', class: 'btn btn-primary' %>
-  <% end %>
-
+<br/>
+<div class="fullheight">
+  <div class="frosty col-10 offset-1">
+    <div class="col-10 offset-1">
+      <br/>
+      <br/>
+      <h2>Please Enter Your Contact Information</h2>
+      <%= simple_form_for @rfq do |f| %>
+        <br/>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :name, placeholder: "John Smith" %>
+          
+            <%= f.input :email, placeholder: "smith@email.com"%>
+            <%= f.input :phone_number, placeholder: "541-123-1234"%>
+            <%= f.input :company_name, placeholder: "Business Name" %>
+         
+            
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :catering_type, as: :select, collection: Rfq::CATERING_TYPE %>
+            <%= f.input :event_type, placeholder: "Wedding"%>
+            <%= f.input :people_attending, as: :select, collection: 25..400, step: 5 %>
+            <%= f.input :event_date, as: :date, start_year: Date.today.year,
+                                end_year: Date.today.year + 3,
+                                order: [:month, :day, :year]%>
+          </div>
+        </div>
+        <br/>
+        <div class="text-center">
+          <%= f.submit 'Next to Menu Selection', class: 'btn btn-primary' %>  
+        </div>
+      <% end %>
+    
+      <br/>
+    </div>
+  </div>
 </div>

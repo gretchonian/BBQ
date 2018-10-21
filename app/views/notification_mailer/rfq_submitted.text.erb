@@ -1,0 +1,12 @@
+Hello!
+
+Congrats! You have received a new quote request.
+<%= @rfq.name %>'s order is for a <%= @rfq.catering_type_humanized %> on <%= @rfq.event_date %> for <%= @rfq.people_attending %> people at a <%= @rfq.event_type %><% if @rfq.company_name %>for <%= @rfq.company_name %><%end%>
+  Meats Selected: <%=@meats%>
+  Sides Selected: <%=@sides%>
+<% if @rfq.comments != "" %>
+They also provided these comments with their order:
+  <%=@rfq.comments%>
+<% end %>
+   
+Contact <%= @rfq.name %>, phone <%= @rfq.phone_number %>, or email <%=@rfq.email %> today!

@@ -2,44 +2,90 @@
 <html>
   <head>
     <title>Off the Bone BBQ</title>
-    <meta name = "description" content = "Off the Bone Catering offers delicious food for any occassion "/>
+    <meta name = "description" content = "Off the Bone Catering offers delicious wood-smoked cuisine for any occassion "/>
+    <meta name = "keywords" content="BBQ,catering,barbeque,smoked,food,restaurant">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Alice');
+    </style>
   </head>
 
   <body>
-    <div id="flex-content-container">
+    <div id="flex-container">
       <nav class="navbar">
-        <div class="row h_links">
-          
-          <%= link_to 'HOME', root_path %>
-                 
-          <%= link_to 'ABOUT', about_path %>
-          
-          <%= link_to 'MENU', menu_path %>
-           
-          <%= link_to 'CONTACT', contact_path %>
-          
+        <div class="row h_links text-center">
+          <div class="col-sm-3">
+            <%= link_to 'HOME', root_path %>
+          </div>
+          <div class="col-sm-3">   
+            <%= link_to 'ABOUT', about_path %>
+          </div>
+          <div class="col-sm-3">
+            <%= link_to 'MENU', menu_path %>
+          </div>
+          <div class="col-sm-3"> 
+            <%= link_to 'CONTACT', contact_path %>
+          </div>
         </div>
       </nav>
-      <%= yield %>
-    </div>
-        
-    <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-6">
-            <%= link_to "Request a Quote", new_rfq_path %>
-          </div>
-          <div class="col-12 col-sm-6 text-right"> 
-            <a href="mailto:offthebonebbq1@gmail.com">Email Us</a>
+      <div class="main">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md text-center f_title">
+              <u>CONTACT</u>
+              <div class="f_link"> 
+                <%= link_to "mailto:offthebonebbq1@gmail.com" do %> 
+                  <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Us
+                <% end %>
+              </div>
+              <div class="f_link">
+                <%= link_to "tel:+1-541-630-4720" do%>
+                  <i class="fa fa-phone"></i>
+                    &nbsp;541-690-8689
+                <% end %>
+              </div>
+            </div>
+            <br/>
+            <div class="col-md text-center f_title">
+              <u>REQUEST A QUOTE</u>
+              <div class="f_link">
+                <%= link_to new_rfq_path do %>
+                  <i class="fa fa-telegram"></i>&nbsp;&nbsp;Request a Quote
+                <% end %>
+              </div>
+            </div>
+            <br/>
+            <div class="col-md text-center f_title">
+              <u>SOCIAL</u>
+              <div class="f_link">
+                <%= link_to "https://facebook.com/OffTheBoneBbqGrill" do%>
+                  <i class="fa fa-facebook"></i>
+                  &nbsp;Facebook
+                <% end %>
+              </div>
+              <div class="f_link">
+                <%= link_to "https://yelp.com/biz/off-the-bone-bbq-central-point" do%>
+                <i class="fa fa-yelp"></i>
+                  &nbsp;Yelp
+              <% end %>
+              </div>
+            </div>
             <br />
-            <a href="http://www.zigzagwebdesigns.com">Website: ZigZagDesign</a>
+            <div class="credit col-12 text-center">
+              <%=link_to 'http://zigzagwebdesigns.com' do %>
+                website by: zigzagwebdesigns.com
+              <%end%>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   </body>
 </html>

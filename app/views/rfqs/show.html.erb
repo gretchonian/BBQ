@@ -1,0 +1,101 @@
+<script>
+  $(function() {
+    var s = $('.food');
+    touchStart = function (event) {
+        event.preventDefault();
+        $(this).addClass("touched");
+    };
+     touchEnd = function (event) {
+        event.preventDefault();
+        $(this).removeClass("touched");
+    };
+    s.ontouchstart = touchStart;
+    s.ontouchend = touchEnd;
+    $(s).bind("touchstart mousedown", function (e){
+      console.log(e.type);
+    });
+    $(s).bind("touchend mouseup", function (e) {console.log(e.type);
+    });
+    $('.food').change(function(e) {    
+      if (this.checked == true) {
+        var foodId = $(e.target).data("value");
+        var selectedFood = Boolean($(e.target).is(':checked'));  
+        $.ajax({
+          type: 'PUT',
+          url: "/foods/" + foodId,
+          data: { food: {selected: selectedFood} },
+        });
+      } else {
+        var deSelectedFood = Boolean($(e.target).is(''));
+         $.ajax({
+          type: 'PUT',
+          url: "/foods/" + foodId,
+          data: { food: {selected: deSelectedFood} },
+        });
+      }
+    });
+  });
+</script>
+<br/>
+<br/>
+<div class="fullheight">
+  <div class="frosty">
+    <div class="container">
+      <div class="col-10 offset-1">
+        <br/>
+        <br/>
+        <div class="text-center">
+          <h1>Choose From Our Menu</h1>
+        </div>
+      
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <br/>
+          <h3 class="text-center"><u>Smoked Meat</u></h3>
+          <div class="col-12">
+            <ul id="meatlist">
+            <br />
+              <%= simple_form_for @rfq do |f| %>
+                <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
+                  <li>
+                    <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                    <%=b.label(class: "meat_name")%>
+                <%end%>
+                  </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <br/>
+          <h3 class="text-center"><u>Side Dishes</u></h3>
+          <div class="col-12">
+            <ul id="sidelist">
+            <br />
+                <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
+                  <li>
+                    <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
+                    <%=b.label(class: "side_name")%>
+                <%end%>
+                  </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-10 offset-sm-1">
+                <%= f.input :comments %>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-12 text-center">
+                  <%= f.submit 'Submit for Quote', class: 'btn btn-primary ', method: :put %>
+                <% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,4 +1,29 @@
 @import "bootstrap";
+@import "font-awesome";
+
+abbr[title="required"] {
+  display: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.about {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.about_img {
+  height: 100%;
+  width: 300px;
+  object-fit: contain;
+}
+
+.about_link {
+  color: #FF5733;
+}
 
 body { 
   background: image_url("bbq.jpg") no-repeat center center fixed; 
@@ -6,22 +31,12 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Alice', serif;
+  color: #FFEE5F;
 }
 
-
-h1,h2,h3,h4,h5,h6,p,li,a {
-  color:white;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-.about {
-  text-align: center;
-  padding-top: 30px;
+h1 {
+  font-family: 'ryeregular';
 }
 
 .btn {
@@ -37,14 +52,53 @@ html {
   object-fit: contain;
 }
 
+.clr {
+  clear: both;
+}
+
 .contact {
+}
+
+.credit {
+  font-size: 10px;
+}
+
+.credit a {
+  color: #FBE317;
+}
+
+.f_link a {
+  color: #FBE317;
+}
+
+.main {
+  min-height: 90vh;
+}
+
+.frosty {
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFEE5F;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  border-radius: 15px;
+}
+
+.f_title {
+  color: #FF0000;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 .h_links a{
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 2px;
   padding: 10px 40px;
+  font-family: 'ryeregular';
 }
 
 .img {
@@ -59,30 +113,35 @@ html {
 
 .index-bottom {
   margin-bottom: 30px;
- }
-
-
-.frosty {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 20px;
-  box-shadow: 0px 1px 3px #2a2a2a;
-}
-
-li {
-  list-style-type: none;
 }
 
 .navbar {
   background-color: black;
 }
 
-a:hover {
-  color: white;
+.navbar a {
+color: #E44725;
+}
+
+span.help-block{
+  color: #FF5733;
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; 
+  font-size: 20px;
+}
+
+ul.food_list {
+  padding-left: 0px;
+}
+
+ul#meatlist  {
+  padding-left: 70px;
+}
+
+ul#sidelist { 
+  padding-left: 70px; 
 }
 
 
