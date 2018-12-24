@@ -15,7 +15,7 @@ class RfqsController < ApplicationController
   end
 
   def update
-    @rfq = Rfq.find(params[:id])
+    @rfq = Rfq.find(params[:id])            
     @rfq.update_attributes(rfq_params)
     if @rfq.valid?
       redirect_to thankyou_path
@@ -26,6 +26,7 @@ class RfqsController < ApplicationController
 
   def show
     @rfq = Rfq.where(id: params[:id]).last
+    #something is wrong here. let's see. Ajax works, updates /food/:id
     foods = Food.where(rfq_id: @rfq)
     @meats= foods.where(type: "meat")
     @sides=foods.where(type: "side")

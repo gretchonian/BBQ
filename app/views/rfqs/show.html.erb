@@ -1,4 +1,4 @@
-<script>
+<script>          
   $(function() {
     var s = $('.food');
     touchStart = function (event) {
@@ -16,10 +16,12 @@
     });
     $(s).bind("touchend mouseup", function (e) {console.log(e.type);
     });
-    $('.food').change(function(e) {    
+    $('.food').change(function(e) {
       if (this.checked == true) {
         var foodId = $(e.target).data("value");
-        var selectedFood = Boolean($(e.target).is(':checked'));  
+        // console.log(foodId);
+        var selectedFood = Boolean($(e.target).is(':checked')); 
+        // console.log(selectedFood);
         $.ajax({
           type: 'PUT',
           url: "/foods/" + foodId,
@@ -32,7 +34,7 @@
           url: "/foods/" + foodId,
           data: { food: {selected: deSelectedFood} },
         });
-      }
+      };
     });
   });
 </script>
