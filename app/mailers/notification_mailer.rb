@@ -6,8 +6,7 @@ class NotificationMailer < ApplicationMailer
     @rfq = rfq
     @meats = rfq.foods_ordered(rfq.meats).join(', ')
     @sides = rfq.foods_ordered(rfq.sides).join(', ')
-    # mail(to: "offthebonebbq1@gmail.com",
-    mail(to: "gretchonian@gmail.com",
+    mail(to: "offthebonebbq1@gmail.com",
       subject: "A new RFQ has been submitted from #{rfq.name}!")
   end
 

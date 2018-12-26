@@ -9,9 +9,7 @@ class BbqController < ApplicationController
   end
 
   def menu
-    # meat = Meat.create(meat_params)
-    # render json: meat
-    # render json: Meat.all 
+
   end
 
   def contact
@@ -19,6 +17,6 @@ class BbqController < ApplicationController
   end
 
   def meat_params
-    # params.require(:meat).permit(:name :selected)
+    
   end
 end
