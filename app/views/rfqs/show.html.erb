@@ -17,9 +17,8 @@
     $(s).bind("touchend mouseup", function (e) {console.log(e.type);
     });
     $('.food').change(function(e) {
+      var foodId = $(e.target).data("value");
       if (this.checked == true) {
-        var foodId = $(e.target).data("value");
-        // console.log(foodId);
         var selectedFood = Boolean($(e.target).is(':checked')); 
         // console.log(selectedFood);
         $.ajax({
@@ -29,6 +28,7 @@
         });
       } else {
         var deSelectedFood = Boolean($(e.target).is(''));
+        // console.log(deSelectedFood);
          $.ajax({
           type: 'PUT',
           url: "/foods/" + foodId,
@@ -58,7 +58,7 @@
             <ul id="meatlist">
             <br />
               <%= simple_form_for @rfq do |f| %>
-                <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id) ) do |b| %>
+                <%=f.collection_check_boxes(:meats, @meats.all, :id, :name, checked: @meats.where(selected: true).map(&:id), unchecked: @meats.where(selected: false).map(&:id) ) do |b| %>
                   <li>
                     <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
                     <%=b.label(class: "meat_name")%>
@@ -73,7 +73,7 @@
           <div class="col-12">
             <ul id="sidelist">
             <br />
-                <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id) ) do |b| %>
+                <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true), unchecked: @sides.where(selected: false).map(&:id) ) do |b| %>
                   <li>
                     <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
                     <%=b.label(class: "side_name")%>
