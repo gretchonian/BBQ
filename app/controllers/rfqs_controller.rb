@@ -26,7 +26,6 @@ class RfqsController < ApplicationController
 
   def show
     @rfq = Rfq.where(id: params[:id]).last
-    #something is wrong here. let's see. Ajax works, updates /food/:id
     foods = Food.where(rfq_id: @rfq)
     @meats= foods.where(type: "meat")
     @sides=foods.where(type: "side")

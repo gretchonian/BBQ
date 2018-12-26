@@ -17,6 +17,5 @@ class NotificationMailer < ApplicationMailer
     @sides = rfq.foods_ordered(rfq.sides).join(', ')
     mail(to: @rfq.email,
       subject: "We have received your quote request")
-
   end
 end
