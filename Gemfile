@@ -71,3 +71,5 @@ gem "figaro"
 
 # Add symbols thru awesome fonts
 gem "font-awesome-rails"
+
+gem 'meta-tags'
