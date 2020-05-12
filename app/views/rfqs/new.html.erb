@@ -10,7 +10,7 @@
       <%= simple_form_for @rfq do |f| %>
         <br/>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 alert alert-primary">
             <%= f.input :name, placeholder: "John Smith" %>
           
             <%= f.input :email, placeholder: "smith@email.com"%>
@@ -33,7 +33,6 @@
           <%= f.submit 'Next to Menu Selection', class: 'btn btn-primary' %>  
         </div>
       <% end %>
-    
       <br/>
     </div>
   </div>
