@@ -73,7 +73,7 @@
           <div class="col-12">
             <ul id="sidelist">
             <br />
-                <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true), unchecked: @sides.where(selected: false).map(&:id) ) do |b| %>
+                <%=f.collection_check_boxes(:sides, @sides.all, :id, :name, checked: @sides.where(selected: true).map(&:id), unchecked: @sides.where(selected: false).map(&:id) ) do |b| %>
                   <li>
                     <%=b.check_box("data-value": b.value, "data-text": b.text, class: "food") %>
                     <%=b.label(class: "side_name")%>
