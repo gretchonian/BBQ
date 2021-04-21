@@ -32,7 +32,6 @@ class RfqsController < ApplicationController
   end
 
   def thankyou
-    
   end
 
 

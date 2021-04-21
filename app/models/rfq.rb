@@ -9,6 +9,7 @@ class Rfq < ApplicationRecord
   after_create :side_selection
   after_update :send_rfq
   after_update :send_confirmation
+  after_update :destroy_rfq
   
   validates_format_of :name, :with => /\A(?=.* )[^0-9`!@#\\\$%\^&*\;+_=]{4,}\z/, :on => :create
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :on => :create
@@ -77,4 +78,9 @@ class Rfq < ApplicationRecord
   def send_request_email
     NotificationMailer.rfq_added(self).deliver
   end
+
+  def destroy_rfq
+    self.destroy 
+  end
+
 end
